@@ -4,7 +4,7 @@ const conection = async() => {
 
     try {
         /* await mongoose.connect("mongodb://localhost:27017/mi_redsocial"); */
-        await mongoose.connect("mongodb+srv://jose_016al:<password>@cluster1.secyv2u.mongodb.net/?retryWrites=true&w=majority");
+        await mongoose.connect("mongodb+srv://jose_016al:cu4RONWTvLyZ5InO@cluster1.secyv2u.mongodb.net/?retryWrites=true&w=majority",);
         /* Parametros dentro de objeto, solo en caso de aviso */
         /* useNewUrlParser: true */
         /* useUnifiedTopology: true */
