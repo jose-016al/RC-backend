@@ -32,9 +32,9 @@ app.use("/api/follow", FollowRoutes);
 app.use("/api/publication", PublicationRoutes);
 
 /* Cargar el index del frontend */
-app.get('*', (req, res, next => {
+app.get('*', (req, res, next) => {
     return res.sendFile(path.resolve('dist/index.html'));
-}));
+});
 
 /* Poner servidor a escuchar peticiones http */
 app.listen(puerto, () => {
