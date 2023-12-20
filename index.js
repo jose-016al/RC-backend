@@ -2,6 +2,9 @@ const { conection } = require("./database/conection");
 const express = require("express");
 const cors = require("cors");
 
+/* Libreria para acceder a ficheros estaticos */
+const path = require('path');
+
 /* Conexion a bbdd */
 conection();
 
@@ -21,10 +24,17 @@ const UserRoutes = require("./routes/user");
 const FollowRoutes = require("./routes/follow");
 const PublicationRoutes = require("./routes/publication");
 
+
 /* Cargar rutas */
+app.use('/', express.static('dist', {redirect: false}));
 app.use("/api/user", UserRoutes);
 app.use("/api/follow", FollowRoutes);
 app.use("/api/publication", PublicationRoutes);
+
+/* Cargar el index del frontend */
+app.get('*', (req, res, next => {
+    return res.sendFile(path.resolve('dist/index.html'));
+}));
 
 /* Poner servidor a escuchar peticiones http */
 app.listen(puerto, () => {
